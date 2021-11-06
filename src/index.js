@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CurrencyChart from './components/CurrencyChart'
-import CurrencyTable from './components/CurrencyTable'
-import HardwareTable from './components/HardwareTable'
-import PlanFactChart from './components/PlanFactChart'
+import PieChart from './components/PieChart'
 
 const data = {
+  hardwarePieChart: {
+    chartName: 'Оборудование',
+    dataset: { 'L3+': 5, 'WM': 6, 'S9': 1 },
+  },
+  incomePieChart: {
+    chartName: 'Структура доходов',
+    dataset: { 'L3+': 3, 'WM': 8, 'S9': 1 },
+  },
   currenciesTable: {
     currencies: [
       { name: 'LW', bitcoin: 12.256, lightcoin: 35.961, exp: 0.01 },
@@ -18,36 +23,9 @@ const data = {
   },
   hardwareTable: {
     hardware: [
-      {
-        name: 'L3+',
-        all: 12,
-        v: 3,
-        x: 76,
-        sale: 14,
-        buy: 3,
-        avs: 9.561,
-        avb: 4.199,
-      },
-      {
-        name: 'WM',
-        all: 102,
-        v: 34,
-        x: 67,
-        sale: 2,
-        buy: 8,
-        avs: 3.15,
-        avb: 5.12,
-      },
-      {
-        name: 'S/T17',
-        all: 23,
-        v: 11,
-        x: 7,
-        sale: 8,
-        buy: 0,
-        avs: 8.35,
-        avb: 1.82,
-      },
+      { name: 'L3+', all: 12, v: 3, x: 76, sale: 14, buy: 3, avs: 9.561, avb: 4.199 },
+      { name: 'WM', all: 102, v: 34, x: 67, sale: 2, buy: 8, avs: 3.15, avb: 5.12 },
+      { name: 'S/T17', all: 23, v: 11, x: 7, sale: 8, buy: 0, avs: 8.35, avb: 1.82 },
     ],
   },
   planFactChart: {
@@ -71,10 +49,12 @@ const data = {
 
 ReactDOM.render(
   <div>
-    <CurrencyTable data={data.currenciesTable}/>
-    <HardwareTable data={data.hardwareTable}/>
-    <PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>
-    <CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>
+    <PieChart chartName={data.hardwarePieChart.chartName} dataset={data.hardwarePieChart.dataset}/>
+    <PieChart chartName={data.incomePieChart.chartName} dataset={data.incomePieChart.dataset}/>
+    {/*<CurrencyTable data={data.currenciesTable}/>*/}
+    {/*<HardwareTable data={data.hardwareTable}/>*/}
+    {/*<PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>*/}
+    {/*<CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>*/}
   </div>,
   document.getElementById('root'),
 )
