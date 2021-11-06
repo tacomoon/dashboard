@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import BoardRepairmentTable from './components/BoardRepairmentTable'
-import ManufacturingTable from './components/ManufacturingTable'
+import TotalStatsTable from './components/TotalStatsTable'
 
 const data = {
   hardwarePieChart: {
@@ -42,6 +41,14 @@ const data = {
       { name: 'Total', pieces: 8, usd: 68.7 },
     ],
   },
+  totalStatsTable: {
+    stats: [
+      { name: 'Контейнеров', max: 12, fact: 7 },
+      { name: 'МВт', max: 674.3, fact: 859.3 },
+      { name: 'сотрудников', max: 32, fact: 32 },
+      { name: '$', max: 3489.339, fact: 2554.1 },
+    ],
+  },
   planFactChart: {
     chartName: 'THs (plan/fact) L6W',
     dataset: {
@@ -67,8 +74,9 @@ ReactDOM.render(
     {/*<PieChart chartName={data.incomePieChart.chartName} dataset={data.incomePieChart.dataset}/>*/}
     {/*<CurrencyTable data={data.currenciesTable}/>*/}
     {/*<HardwareTable data={data.hardwareTable}/>*/}
-    <BoardRepairmentTable data={data.boardRepairmentTable}/>
-    <ManufacturingTable data={data.manufacturingTable}/>
+    {/*<BoardRepairmentTable data={data.boardRepairmentTable}/>*/}
+    {/*<ManufacturingTable data={data.manufacturingTable}/>*/}
+    <TotalStatsTable data={data.totalStatsTable}/>
     {/*<PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>*/}
     {/*<CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>*/}
   </div>,
