@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CurrencyDashboard extends React.Component {
+class CurrencyTable extends React.Component {
   constructor(props) {
     super(props)
 
@@ -25,21 +25,19 @@ class CurrencyDashboard extends React.Component {
         <tbody>
         {
           this.state.currencies
-            .filter(currency => currency.name !== undefined && currency.name != null)
-            .map(
-              (currency) => (
-                <tr key={currency.name}>
-                  <td>{currency.name}</td>
-                  <td>{(currency.bitcoin) ? currency.bitcoin.toFixed(2) : 'no value'}</td>
-                  <td>{(currency.lightcoin) ? currency.lightcoin.toFixed(2) : 'no value'}</td>
-                  <td>{(currency.exp) ? currency.exp.toFixed(2) : 'no value'}</td>
-                  <td>{
-                    (currency.bitcoin && currency.lightcoin && currency.exp)
-                      ? (currency.bitcoin + currency.lightcoin - currency.exp).toFixed(2)
-                      : 'no value'
-                  }</td>
-                </tr>
-              ),
+            .filter(currency => currency.name)
+            .map(currency =>
+              <tr key={currency.name}>
+                <td>{currency.name}</td>
+                <td>{(currency.bitcoin) ? currency.bitcoin.toFixed(2) : 'no value'}</td>
+                <td>{(currency.lightcoin) ? currency.lightcoin.toFixed(2) : 'no value'}</td>
+                <td>{(currency.exp) ? currency.exp.toFixed(2) : 'no value'}</td>
+                <td>{
+                  (currency.bitcoin && currency.lightcoin && currency.exp)
+                    ? (currency.bitcoin + currency.lightcoin - currency.exp).toFixed(2)
+                    : 'no value'
+                }</td>
+              </tr>,
             )
         }
         <tr>
@@ -55,4 +53,4 @@ class CurrencyDashboard extends React.Component {
   }
 }
 
-export default CurrencyDashboard
+export default CurrencyTable
