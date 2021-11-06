@@ -1,5 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import BoardRepairmentTable from './components/BoardRepairmentTable'
+import CurrencyChart from './components/CurrencyChart'
+import CurrencyTable from './components/CurrencyTable'
+import HardwareTable from './components/HardwareTable'
+import ManufacturingTable from './components/ManufacturingTable'
+import PieChart from './components/PieChart'
+import PlanFactChart from './components/PlanFactChart'
 import TotalStatsTable from './components/TotalStatsTable'
 
 const data = {
@@ -70,15 +77,44 @@ const data = {
 
 ReactDOM.render(
   <div>
-    {/*<PieChart chartName={data.hardwarePieChart.chartName} dataset={data.hardwarePieChart.dataset}/>*/}
-    {/*<PieChart chartName={data.incomePieChart.chartName} dataset={data.incomePieChart.dataset}/>*/}
-    {/*<CurrencyTable data={data.currenciesTable}/>*/}
-    {/*<HardwareTable data={data.hardwareTable}/>*/}
-    {/*<BoardRepairmentTable data={data.boardRepairmentTable}/>*/}
-    {/*<ManufacturingTable data={data.manufacturingTable}/>*/}
-    <TotalStatsTable data={data.totalStatsTable}/>
-    {/*<PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>*/}
-    {/*<CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>*/}
+    <div className="ui grid">
+
+      <div className="six wide column">
+        <CurrencyTable data={data.currenciesTable}/>
+        <CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>
+      </div>
+
+      <div className="ten wide column">
+
+        <div className="ui two column grid">
+          <div className="row">
+            <div className="column">
+              <PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>
+            </div>
+            <div className="column">
+              <TotalStatsTable data={data.totalStatsTable}/>
+            </div>
+          </div>
+        </div>
+
+        <HardwareTable data={data.hardwareTable}/>
+
+        <div className="ui three column grid">
+          <div className="column">
+            <PieChart chartName={data.hardwarePieChart.chartName} dataset={data.hardwarePieChart.dataset}/>
+          </div>
+          <div className="column">
+            <PieChart chartName={data.incomePieChart.chartName} dataset={data.incomePieChart.dataset}/>
+          </div>
+          <div className="column">
+            <BoardRepairmentTable data={data.boardRepairmentTable}/>
+            <ManufacturingTable data={data.manufacturingTable}/>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>,
   document.getElementById('root'),
 )
