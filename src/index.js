@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CurrencyDashboard from './components/CurrencyDashboard'
-import PlanFactChart from './components/PlanFactChart'
+import CurrencyChart from './components/CurrencyChart'
 
 const data = {
   currenciesDashboard: {
@@ -15,19 +14,29 @@ const data = {
     },
   },
   planFactChart: {
-    name: 'THs (plan/fact) L6W',
+    chartName: 'THs (plan/fact) L6W',
     dataset: {
       labels: Array(6).fill(-6).map((value, index) => value + index),
       plan: [{ x: -6, y: 3 }, { x: -2, y: 1 }],
       fact: [{ x: -6, y: 2 }, { x: -2, y: 3 }, { x: -1, y: 1.4 }],
     },
   },
+  currencyChart: {
+    chartName: 'Last 6 week ($)',
+    dataset: {
+      labels: Array(6).fill(-6).map((value, index) => (value + index).toString()),
+      bitcoin: { '-6': 3, '-2': 4 },
+      lightcoin: { '-6': 7, '-3': 3, '-2': 3 },
+      exp: { '-6': 1.4, '-2': 2.8 },
+    },
+  },
 }
 
 ReactDOM.render(
   <div>
-    <CurrencyDashboard data={data.currenciesDashboard}/>
-    <PlanFactChart name={data.planFactChart.name} dataset={data.planFactChart.dataset}/>
+    {/*<CurrencyDashboard data={data.currenciesDashboard}/>*/}
+    {/*<PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>*/}
+    <CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>
   </div>,
   document.getElementById('root'),
 )

@@ -6,7 +6,7 @@ class PlanFactChart extends React.Component {
     super(props)
 
     this.state = {
-      chartName: props.name,
+      chartName: props.chartName,
       data: {
         datasets: [
           {
