@@ -73,11 +73,35 @@ const containerDashboardData = {
     stats: [
       { name: 'now', ths: 12, percentage: 73, lightcoin: null, power: 'LD', totalExp: null, usd: undefined },
       { name: 'max', ths: 9, percentage: 100, lightcoin: undefined, power: 40, totalExp: undefined, usd: null },
-      { name: 'LW', ths: "Av", percentage: 62, lightcoin: 72, power: 682, totalExp: 182, usd: 6712.122 },
-      { name: 'LSWw', ths: "Av", percentage: 45, lightcoin: 23, power: 91, totalExp: 723, usd: 73.14 },
-      { name: 'YTD', ths: "Av", percentage: 81, lightcoin: 52, power: 341, totalExp: 41, usd: 347.1 },
-      { name: 'Total', ths: "Av", percentage: 50, lightcoin: 52, power: 461, totalExp: 723, usd: 23.1 },
+      { name: 'LW', ths: 'Av', percentage: 62, lightcoin: 72, power: 682, totalExp: 182, usd: 6712.122 },
+      { name: 'LSW', ths: 'Av', percentage: 45, lightcoin: 23, power: 91, totalExp: 723, usd: 73.14 },
+      { name: 'YTD', ths: 'Av', percentage: 81, lightcoin: 52, power: 341, totalExp: 41, usd: 347.1 },
+      { name: 'Total', ths: 'Av', percentage: 50, lightcoin: 52, power: 461, totalExp: 723, usd: 23.1 },
     ],
+  },
+  currencyChart: {
+    chartName: 'Last 6 month ($)',
+    dataset: {
+      labels: Array(6).fill(-6).map((value, index) => (value + index).toString()),
+      bitcoin: { '-6': 3, '-3': 2, '-2': 4 },
+      lightcoin: { '-6': 7, '-3': 3, '-2': 3 },
+      exp: { '-6': 1.4, '-3': 1.5, '-2': 2.8 },
+    },
+  },
+  planFactChart: {
+    chartName: 'THs (plan/fact) L6W',
+    dataset: {
+      labels: Array(6).fill(-6).map((value, index) => value + index),
+      plan: [{ x: -6, y: 3 }, { x: -2, y: 1 }],
+      fact: [{ x: -6, y: 2 }, { x: -2, y: 3 }, { x: -1, y: 1.4 }],
+    },
+  },
+  rankingTable: {
+    container: {
+      responsibility: 'ВВП',
+      ranking: 3,
+      score: 62,
+    },
   },
 }
 
