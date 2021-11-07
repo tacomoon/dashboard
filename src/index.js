@@ -103,6 +103,17 @@ const containerDashboardData = {
       score: 62,
     },
   },
+  containerTaskChart: {
+    chartName: 'Работа в контейнере',
+    dataset: {
+      labels: Array(6).fill(-6).map((value, index) => (value + index).toString()),
+      hp: { '-6': 3, '-5': 4, '-4': 3, '-3': 6, '-2': 4, '-1': 4 },
+      bp: { '-6': 2, '-5': 3, '-4': 3, '-3': 2, '-2': 5, '-1': 5 },
+      fan: { '-6': 5, '-5': 5, '-4': 1, '-3': 3, '-2': 1, '-1': 2 },
+      kp: { '-6': 7, '-5': 6, '-4': 7, '-3': 4, '-2': 3, '-1': 3 },
+      blackouts: { '-6': 1, '-5': 0, '-4': 2, '-3': 0, '-2': 0, '-1': 0 },
+    },
+  },
 }
 
 ReactDOM.render(

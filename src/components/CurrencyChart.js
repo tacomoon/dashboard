@@ -51,7 +51,6 @@ class CurrencyChart extends React.Component {
     return (
       <div id={'currency-chart'}>
         <h2 className={'ui header center aligned'}>{this.state.chartName}</h2>
-        {/*<Chart data={this.state.data} options={this.state.options}/>*/}
         <Bar type={'bar'} data={this.state.data} options={this.state.options}/>
       </div>
     )
