@@ -114,6 +114,10 @@ const containerDashboardData = {
       blackouts: { '-6': 1, '-5': 0, '-4': 2, '-3': 0, '-2': 0, '-1': 0 },
     },
   },
+  hardwareProblemPieChart: {
+    chartName: 'Оборудование (проблемы)',
+    dataset: { 'Пусто': 1, 'Не видны': 1, 'О': 3, 'Меньше 4 плат': 2, "Все платы, но меньше 450": 3, "Рабочие": 4},
+  }
 }
 
 ReactDOM.render(
