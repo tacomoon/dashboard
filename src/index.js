@@ -1,15 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import BoardRepairmentTable from './components/BoardRepairmentTable'
-import CurrencyChart from './components/CurrencyChart'
-import CurrencyTable from './components/CurrencyTable'
-import HardwareTable from './components/HardwareTable'
-import ManufacturingTable from './components/ManufacturingTable'
-import PieChart from './components/PieChart'
-import PlanFactChart from './components/PlanFactChart'
-import TotalStatsTable from './components/TotalStatsTable'
+import ContainerDashboard from './components/ContainerDashboard'
 
-const data = {
+const mainDashboardData = {
   hardwarePieChart: {
     chartName: 'Оборудование',
     dataset: { 'L3+': 5, 'WM': 6, 'S9': 1 },
@@ -75,46 +68,22 @@ const data = {
   },
 }
 
+const containerDashboardData = {
+  containerStatsTable: {
+    stats: [
+      { name: 'now', ths: 12, percentage: 73, lightcoin: null, power: 'LD', totalExp: null, usd: undefined },
+      { name: 'max', ths: 9, percentage: 100, lightcoin: undefined, power: 40, totalExp: undefined, usd: null },
+      { name: 'LW', ths: "Av", percentage: 62, lightcoin: 72, power: 682, totalExp: 182, usd: 6712.122 },
+      { name: 'LSWw', ths: "Av", percentage: 45, lightcoin: 23, power: 91, totalExp: 723, usd: 73.14 },
+      { name: 'YTD', ths: "Av", percentage: 81, lightcoin: 52, power: 341, totalExp: 41, usd: 347.1 },
+      { name: 'Total', ths: "Av", percentage: 50, lightcoin: 52, power: 461, totalExp: 723, usd: 23.1 },
+    ],
+  },
+}
+
 ReactDOM.render(
   <div>
-    <div className="ui grid">
-
-      <div className="six wide column">
-        <CurrencyTable data={data.currenciesTable}/>
-        <CurrencyChart chartName={data.currencyChart.chartName} dataset={data.currencyChart.dataset}/>
-      </div>
-
-      <div className="ten wide column">
-
-        <div className="ui two column grid">
-          <div className="row">
-            <div className="column">
-              <PlanFactChart chartName={data.planFactChart.chartName} dataset={data.planFactChart.dataset}/>
-            </div>
-            <div className="column">
-              <TotalStatsTable data={data.totalStatsTable}/>
-            </div>
-          </div>
-        </div>
-
-        <HardwareTable data={data.hardwareTable}/>
-
-        <div className="ui three column grid">
-          <div className="column">
-            <PieChart chartName={data.hardwarePieChart.chartName} dataset={data.hardwarePieChart.dataset}/>
-          </div>
-          <div className="column">
-            <PieChart chartName={data.incomePieChart.chartName} dataset={data.incomePieChart.dataset}/>
-          </div>
-          <div className="column">
-            <BoardRepairmentTable data={data.boardRepairmentTable}/>
-            <ManufacturingTable data={data.manufacturingTable}/>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
+    <ContainerDashboard data={containerDashboardData}/>
   </div>,
   document.getElementById('root'),
 )
