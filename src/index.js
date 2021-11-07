@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ContainerDashboard from './components/ContainerDashboard'
+import MainDashboard from './components/MainDashboard'
 
 const mainDashboardData = {
   hardwarePieChart: {
@@ -122,6 +123,7 @@ const containerDashboardData = {
 
 ReactDOM.render(
   <div>
+    {/*<MainDashboard data={mainDashboardData}/>*/}
     <ContainerDashboard data={containerDashboardData}/>
   </div>,
   document.getElementById('root'),
